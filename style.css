@@ -1,0 +1,535 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --gold: #d4af37;
+    --gold-dark: #b8960c;
+    --platinum: #e5e4e2;
+    --rose-gold: #b76e79;
+    --dark-bg: #0a0a0f;
+    --card-bg: rgba(20, 20, 35, 0.7);
+    --border-glow: rgba(212, 175, 55, 0.3);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.watch-bg {
+    position: relative;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Luxury Nav */
+.luxury-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(10, 10, 15, 0.8);
+    backdrop-filter: blur(20px);
+    border-radius: 60px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    margin-bottom: 3rem;
+}
+
+.logo {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+}
+
+.logo i {
+    color: var(--gold);
+    font-size: 1.8rem;
+}
+
+.logo-sub {
+    font-size: 0.8rem;
+    color: var(--gold);
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.5rem 1rem;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 30px;
+    font-size: 0.85rem;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1rem;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--gold), var(--platinum));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-section p {
+    color: #a0a0b0;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.5rem 1.5rem;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 40px;
+    font-weight: 600;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.stat i {
+    color: var(--gold);
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.9fr 0.9fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    border: 1px solid var(--border-glow);
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(212, 175, 55, 0.2);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.card-header i {
+    font-size: 1.5rem;
+    color: var(--gold);
+}
+
+.card-header h3 {
+    flex: 1;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.badge {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #0a0a0f;
+}
+
+.icon-btn {
+    background: rgba(212, 175, 55, 0.2);
+    border: none;
+    color: var(--gold);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.icon-btn:hover {
+    background: rgba(212, 175, 55, 0.4);
+}
+
+/* Watch Grid */
+.watch-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.watch-grid::-webkit-scrollbar {
+    width: 4px;
+}
+
+.watch-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.watch-grid::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 10px;
+}
+
+.watch-card {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 16px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.watch-card:hover {
+    border-color: rgba(212, 175, 55, 0.4);
+    transform: translateX(4px);
+}
+
+.watch-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.watch-name {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.watch-brand {
+    font-size: 0.75rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+}
+
+.watch-price {
+    font-size: 0.8rem;
+    color: #a0a0b0;
+    margin-bottom: 0.75rem;
+}
+
+.watch-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.stage-btn-watch {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    border: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: 0.2s;
+}
+
+.stage-btn-watch:hover {
+    transform: scale(1.05);
+}
+
+/* Staged List */
+.staged-list {
+    min-height: 250px;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: #6a6a7a;
+}
+
+.empty-state i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.staged-watch-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 12px;
+    border-left: 3px solid var(--gold);
+}
+
+.staged-watch-info {
+    flex: 1;
+}
+
+.staged-watch-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.staged-watch-brand {
+    font-size: 0.7rem;
+    color: var(--gold);
+}
+
+.remove-staged {
+    background: rgba(255, 100, 100, 0.2);
+    border: none;
+    color: #ff6b6b;
+    padding: 0.3rem 0.6rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.remove-staged:hover {
+    background: rgba(255, 100, 100, 0.4);
+}
+
+/* Commit Actions */
+.staging-actions {
+    margin-top: 1rem;
+}
+
+.commit-input {
+    width: 100%;
+    padding: 0.75rem;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 0.75rem;
+}
+
+.commit-input:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+
+.btn-commit {
+    width: 100%;
+    background: linear-gradient(135deg, #2d5a2d, #1a3a1a);
+    border: none;
+    padding: 0.75rem;
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.2s;
+}
+
+.btn-commit:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(45, 90, 45, 0.4);
+}
+
+.btn-commit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Commit History */
+.commit-list {
+    max-height: 280px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+}
+
+.commit-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.8rem;
+}
+
+.commit-hash {
+    font-family: monospace;
+    background: rgba(212, 175, 55, 0.2);
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
+}
+
+.commit-msg {
+    flex: 1;
+}
+
+.commit-time {
+    color: #6a6a7a;
+    font-size: 0.7rem;
+}
+
+/* Push Section */
+.push-section {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.push-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    color: #a0a0b0;
+}
+
+.btn-push {
+    width: 100%;
+    background: linear-gradient(135deg, #1e3a5f, #0f2a4a);
+    border: none;
+    padding: 0.75rem;
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.2s;
+}
+
+.btn-push:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(30, 58, 95, 0.4);
+}
+
+/* Terminal */
+.terminal {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.terminal-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.clear-terminal {
+    margin-left: auto;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #a0a0b0;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.terminal-content {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    height: 150px;
+    overflow-y: auto;
+}
+
+.log-line {
+    padding: 0.25rem 0;
+    color: #a0f0a0;
+}
+
+.log-line.success {
+    color: #4ade80;
+}
+
+.log-line.error {
+    color: #f87171;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .watch-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .watch-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}

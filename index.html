@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horologium | Luxury Watch Studio + Git Flow</title>
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="watch-bg">
+        <div class="particles"></div>
+        <div class="container">
+            <!-- Header -->
+            <nav class="luxury-nav">
+                <div class="logo">
+                    <i class="fas fa-clock"></i>
+                    <span>HOROLOGIUM</span>
+                    <span class="logo-sub">studio</span>
+                </div>
+                <div class="nav-links">
+                    <div class="nav-item"><i class="fas fa-git-alt"></i> git:watchflow</div>
+                    <div class="nav-item"><i class="fas fa-code-branch"></i> main</div>
+                </div>
+            </nav>
+
+            <!-- Hero -->
+            <div class="hero-section">
+                <h1>Curate Your <span class="gradient-text">Horological</span> Collection</h1>
+                <p>Track, stage, and commit your dream watches with Git-inspired workflow</p>
+                <div class="hero-stats">
+                    <div class="stat"><i class="fas fa-watch"></i> <span id="totalWatches">0</span> Timepieces</div>
+                    <div class="stat"><i class="fas fa-check-circle"></i> <span id="stagedWatches">0</span> Staged</div>
+                    <div class="stat"><i class="fas fa-code-branch"></i> <span id="commitsCount">3</span> Commits</div>
+                </div>
+            </div>
+
+            <!-- Main Grid -->
+            <div class="dashboard-grid">
+                <!-- Watch Gallery -->
+                <div class="glass-card watch-gallery">
+                    <div class="card-header">
+                        <i class="fas fa-store"></i>
+                        <h3>Available Timepieces</h3>
+                        <span class="badge">NEW ARRIVALS</span>
+                    </div>
+                    <div class="watch-grid" id="watchGrid">
+                        <!-- Watches will be dynamically loaded -->
+                    </div>
+                </div>
+
+                <!-- Staging Area -->
+                <div class="glass-card staging-area">
+                    <div class="card-header">
+                        <i class="fas fa-layer-group"></i>
+                        <h3>Staging Area</h3>
+                        <button class="icon-btn" id="clearStagedBtn" title="Clear all staged">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                    <div id="stagedWatchesList" class="staged-list">
+                        <div class="empty-state">
+                            <i class="fas fa-box-open"></i>
+                            <p>No watches staged. Click the <i class="fas fa-plus-circle"></i> icon on any watch to add.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="staging-actions">
+                        <input type="text" id="commitMessageInput"
+                            placeholder="feat: add luxury watches to collection..." class="commit-input">
+                        <button class="btn-commit" id="commitBtn">
+                            <i class="fas fa-code-commit"></i> Commit Staged
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Commit History + Push -->
+                <div class="glass-card history-area">
+                    <div class="card-header">
+                        <i class="fas fa-history"></i>
+                        <h3>Commit History</h3>
+                        <i class="fas fa-git-branch"></i>
+                    </div>
+                    <div id="commitHistory" class="commit-list">
+                        <div class="commit-item">
+                            <div class="commit-hash">a1b2c3d</div>
+                            <div class="commit-msg">Initial watch collection</div>
+                            <div class="commit-time">2 hours ago</div>
+                        </div>
+                        <div class="commit-item">
+                            <div class="commit-hash">e4f5g6h</div>
+                            <div class="commit-msg">Add Rolex Submariner</div>
+                            <div class="commit-time">1 hour ago</div>
+                        </div>
+                        <div class="commit-item">
+                            <div class="commit-hash">i7j8k9l</div>
+                            <div class="commit-msg">Include Omega Speedmaster</div>
+                            <div class="commit-time">30 mins ago</div>
+                        </div>
+                    </div>
+                    <div class="push-section">
+                        <div class="push-info">
+                            <span><i class="fas fa-cloud-upload-alt"></i> Remote: origin/main</span>
+                            <span id="pushStatus">● Ready to push</span>
+                        </div>
+                        <button class="btn-push" id="pushBtn">
+                            <i class="fab fa-git-alt"></i> git push origin main
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal Output -->
+            <div class="glass-card terminal">
+                <div class="terminal-header">
+                    <i class="fas fa-terminal"></i>
+                    <span>Git Log Output</span>
+                    <button class="clear-terminal" id="clearTerminalBtn"><i class="fas fa-eraser"></i></button>
+                </div>
+                <div id="terminalOutput" class="terminal-content">
+                    <div class="log-line">$ git status</div>
+                    <div class="log-line">On branch main - Your watch collection is ready</div>
+                    <div class="log-line success">✔ Git workflow initialized</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
